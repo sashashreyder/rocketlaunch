@@ -72,10 +72,10 @@ useEffect(() => {
   useEffect(() => {
     if (launchStarted) return; // Once the launch has started, stop updating conditions
       const conditionInterval = setInterval(async () => {
-      const weather = await getWeather(); // Получаем погоду из API
-      if (!weather) return; // Если ошибка, пропускаем обновление
+      const weather = await getWeather(); // API
+      if (!weather) return; // Skips if error
 
-      const newConditions = { ...getRandomConditions(), weather }; // Добавляем погоду в условия
+      const newConditions = { ...getRandomConditions(), weather }; // Add weather to conditions
       setConditions(newConditions);
       setIsReadyToLaunch(checkLaunchConditions(newConditions));
     }, 2000); // Change conditions every 10 seconds
