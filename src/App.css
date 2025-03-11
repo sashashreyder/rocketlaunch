@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -7,6 +7,7 @@
 
 .card {
   padding: 2em;
+  max-width: 90%;
 }
 
 .read-the-docs {
@@ -17,6 +18,45 @@ ul {
   list-style: none;
   padding: 0;
 }
+
+body {
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3rem !important;
+  }
+
+  h2 {
+    font-size: 2.5rem !important;
+  }
+
+  h3 {
+    font-size: 2rem !important;
+  }
+
+  p {
+    font-size: 1.6rem !important;
+  }
+
+  ul {
+    font-size: 1.6rem !important;
+    text-align: center !important;
+  }
+
+  button {
+    font-size: 1.8rem !important;
+    padding: 20px 30px !important;
+  }
+
+  .card {
+    padding: 4rem !important;
+    max-width: 95% !important;
+  }
+}
+
+
 
 
 
