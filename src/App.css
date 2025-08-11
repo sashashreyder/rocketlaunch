@@ -1,59 +1,498 @@
-#root {
-  width: 100%;
-  margin: 0 auto;
-  padding: 2rem;
+/* Cosmic Rocket Launch App Styles - Simplified Design */
+
+/* Animated Cosmic Background - Monotone Night Sky */
+.cosmic-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #0f0f23 75%, #000000 100%);
+  background-size: 400% 400%;
+  animation: cosmicGradient 20s ease infinite;
+  position: relative;
+  overflow-x: hidden;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
 }
 
-.card {
-  padding: 2em;
-  max-width: 90%;
+@keyframes cosmicGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-.read-the-docs {
-  color: #888;
+/* Animated Stars - Multiple Layers for Depth */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+    radial-gradient(2px 2px at 40px 70px, #ffffff, transparent),
+    radial-gradient(1px 1px at 90px 40px, #ffffff, transparent),
+    radial-gradient(1px 1px at 130px 80px, #ffffff, transparent),
+    radial-gradient(2px 2px at 160px 30px, #ffffff, transparent),
+    radial-gradient(1px 1px at 200px 60px, #ffffff, transparent),
+    radial-gradient(1px 1px at 250px 20px, #ffffff, transparent),
+    radial-gradient(2px 2px at 300px 90px, #ffffff, transparent),
+    radial-gradient(1px 1px at 350px 50px, #ffffff, transparent),
+    radial-gradient(1px 1px at 400px 10px, #ffffff, transparent);
+  background-repeat: repeat;
+  background-size: 400px 200px;
+  animation: twinkle 6s ease-in-out infinite;
+  z-index: 1;
 }
 
-ul {
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  25% { opacity: 0.8; }
+  50% { opacity: 1; }
+  75% { opacity: 0.6; }
+}
+
+/* Twinkling Effect - Second Layer */
+.twinkling {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 25px 5px, #ffffff, transparent),
+    radial-gradient(1px 1px at 50px 25px, #ffffff, transparent),
+    radial-gradient(1px 1px at 125px 20px, #ffffff, transparent),
+    radial-gradient(1px 1px at 150px 75px, #ffffff, transparent),
+    radial-gradient(1px 1px at 175px 45px, #ffffff, transparent),
+    radial-gradient(1px 1px at 225px 15px, #ffffff, transparent),
+    radial-gradient(1px 1px at 275px 65px, #ffffff, transparent),
+    radial-gradient(1px 1px at 325px 35px, #ffffff, transparent),
+    radial-gradient(1px 1px at 375px 85px, #ffffff, transparent),
+    radial-gradient(1px 1px at 425px 25px, #ffffff, transparent);
+  background-repeat: repeat;
+  background-size: 450px 250px;
+  animation: twinkle 4s ease-in-out infinite reverse;
+  z-index: 2;
+}
+
+/* Third Layer of Stars for More Depth */
+.stars::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 15px 15px, #ffffff, transparent),
+    radial-gradient(1px 1px at 35px 55px, #ffffff, transparent),
+    radial-gradient(1px 1px at 55px 95px, #ffffff, transparent),
+    radial-gradient(1px 1px at 75px 35px, #ffffff, transparent),
+    radial-gradient(1px 1px at 95px 75px, #ffffff, transparent),
+    radial-gradient(1px 1px at 115px 15px, #ffffff, transparent),
+    radial-gradient(1px 1px at 135px 55px, #ffffff, transparent),
+    radial-gradient(1px 1px at 155px 95px, #ffffff, transparent),
+    radial-gradient(1px 1px at 175px 35px, #ffffff, transparent),
+    radial-gradient(1px 1px at 195px 75px, #ffffff, transparent);
+  background-repeat: repeat;
+  background-size: 220px 120px;
+  animation: twinkle 8s ease-in-out infinite;
+  z-index: 3;
+}
+
+/* Main Title */
+.cosmic-title {
+  text-align: center;
+  color: #fff;
+  font-size: 3.5rem;
+  font-weight: bold;
+  text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 10;
+  animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  from { text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff; }
+  to { text-shadow: 0 0 30px #00ffff, 0 0 60px #00ffff; }
+}
+
+/* Main Launch Card - Your Original Logic Centerpiece */
+.main-launch-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 2px solid #00ffff;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 255, 255, 0.2);
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.countdown {
+  color: #fff;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px #00ffff;
+  font-weight: bold;
+}
+
+.launch-button {
+  background: linear-gradient(45deg, #00ffff, #0080ff);
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 0 auto 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
+}
+
+.launch-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 255, 255, 0.6);
+}
+
+.launch-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.conditions-list {
   list-style: none;
   padding: 0;
+  margin: 20px 0;
+  text-align: center;
 }
 
-body {
-  font-size: 20px;
+.conditions-list li {
+  color: #fff;
+  font-size: 1.1rem;
+  margin: 10px 0;
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  border-left: 3px solid #00ffff;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.conditions-list li:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(5px);
+}
+
+.launch-status {
+  color: #fff;
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: bold;
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(0, 255, 0, 0.2);
+  border-radius: 10px;
+  border: 2px solid rgba(0, 255, 0, 0.3);
+}
+
+/* Cosmic Dashboard - Simplified Design */
+.cosmic-dashboard {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cosmic-dashboard h3 {
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 0 0 15px #00ffff;
+}
+
+.cosmic-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.cosmic-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border: 1px solid #00ffff;
+  border-radius: 15px;
+  padding: 20px;
+  color: #fff;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+/* First row - 3 cards */
+.cosmic-card:nth-child(1) { grid-column: 1; grid-row: 1; }
+.cosmic-card:nth-child(2) { grid-column: 2; grid-row: 1; }
+.cosmic-card:nth-child(3) { grid-column: 3; grid-row: 1; }
+
+/* Second row - 3 cards */
+.cosmic-card:nth-child(4) { grid-column: 1; grid-row: 2; }
+.cosmic-card:nth-child(5) { grid-column: 2; grid-row: 2; }
+.cosmic-card:nth-child(6) { grid-column: 3; grid-row: 2; }
+
+/* Remove the special status-summary positioning */
+.cosmic-card.status-summary {
+  grid-column: 3;
+  grid-row: 2;
+  max-width: 350px;
+  justify-self: center;
+  align-self: center;
+}
+
+.cosmic-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.cosmic-card:hover::before {
+  left: 100%;
+}
+
+.cosmic-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.cosmic-card h4 {
+  color: #00ffff;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  text-align: center;
+  text-shadow: 0 0 10px #00ffff;
+  width: 100%;
+}
+
+.cosmic-card p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  text-align: center;
+  width: 100%;
+}
+
+/* Status Indicators - All using cyan */
+.status-low { color: #00ffff; font-weight: bold; text-align: center; }
+.status-medium { color: #00ffff; font-weight: bold; text-align: center; }
+.status-high { color: #00ffff; font-weight: bold; text-align: center; }
+.status-unknown { color: #888; font-style: italic; text-align: center; }
+
+.risk-low { color: #00ffff; font-weight: bold; text-align: center; }
+.risk-medium { color: #00ffff; font-weight: bold; text-align: center; }
+.risk-high { color: #00ffff; font-weight: bold; text-align: center; }
+
+.radiation-low { color: #00ffff; font-weight: bold; text-align: center; }
+.radiation-moderate { color: #00ffff; font-weight: bold; text-align: center; }
+.radiation-high { color: #00ffff; font-weight: bold; text-align: center; }
+
+.cosmic-status-optimal {
+  color: #00ffff;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  background: rgba(0, 255, 255, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  margin-top: auto;
+  width: 100%;
+}
+
+.cosmic-status-caution {
+  color: #00ffff;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  background: rgba(0, 255, 255, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  margin-top: auto;
+  width: 100%;
+}
+
+.cosmic-status-unknown {
+  color: #888;
+  font-style: italic;
+  text-align: center;
+  padding: 10px;
+  background: rgba(128, 128, 128, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  margin-top: auto;
+  width: 100%;
+}
+
+/* All cards use the same cyan border */
+.cosmic-card.solar,
+.cosmic-card.debris,
+.cosmic-card.radiation,
+.cosmic-card.astronomical,
+.cosmic-card.iss,
+.cosmic-card.status-summary {
+  border: 1px solid #00ffff;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .cosmic-container {
+    max-width: 100%;
+    padding: 15px;
+  }
+  
+  .cosmic-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 16px;
+    justify-items: center;
+  }
+  
+  .cosmic-card {
+    max-width: 320px;
+    min-height: 180px;
+  }
 }
 
 @media (max-width: 768px) {
-  h1 {
-    font-size: 3rem !important;
+  .cosmic-title {
+    font-size: 2.5rem;
   }
+  
+  .countdown {
+    font-size: 2rem;
+  }
+  
+  .cosmic-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 16px;
+    justify-items: center;
+  }
+  
+  /* Reorganize for 2x3 grid on tablets */
+  .cosmic-card:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .cosmic-card:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .cosmic-card:nth-child(3) { grid-column: 1; grid-row: 2; }
+  .cosmic-card:nth-child(4) { grid-column: 2; grid-row: 2; }
+  .cosmic-card:nth-child(5) { grid-column: 1; grid-row: 3; }
+  .cosmic-card:nth-child(6) { grid-column: 2; grid-row: 3; }
+  
+  .main-launch-card {
+    padding: 20px;
+    margin: 0 10px 20px 10px;
+  }
+  
+  .cosmic-dashboard {
+    margin: 0 10px;
+    text-align: center;
+  }
+  
+  .cosmic-card.status-summary {
+    grid-column: 2;
+    grid-row: 3;
+    max-width: 100%;
+    justify-self: center;
+  }
+  
+  .cosmic-card {
+    max-width: 100%;
+    text-align: center;
+  }
+}
 
-  h2 {
-    font-size: 2.5rem !important;
+@media (max-width: 480px) {
+  .cosmic-container {
+    padding: 10px;
   }
+  
+  .cosmic-title {
+    font-size: 1.8rem;
+  }
+  
+  .countdown {
+    font-size: 1.5rem;
+  }
+  
+  .cosmic-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 16px;
+    justify-items: center;
+  }
+  
+  /* Stack all cards vertically on mobile */
+  .cosmic-card:nth-child(1),
+  .cosmic-card:nth-child(2),
+  .cosmic-card:nth-child(3),
+  .cosmic-card:nth-child(4),
+  .cosmic-card:nth-child(5),
+  .cosmic-card:nth-child(6) {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: center;
+    max-width: 100%;
+  }
+  
+  .main-launch-card {
+    padding: 15px;
+  }
+  
+  .cosmic-card {
+    padding: 15px;
+    min-height: 160px;
+    text-align: center;
+  }
+}
 
-  h3 {
-    font-size: 2rem !important;
-  }
+/* Loading Animation */
+.cosmic-card p:contains("Loading") {
+  color: #00ffff;
+  font-style: italic;
+  animation: pulse 1.5s ease-in-out infinite;
+}
 
-  p {
-    font-size: 1.6rem !important;
-  }
-
-  ul {
-    font-size: 1.6rem !important;
-    text-align: center !important;
-  }
-
-  button {
-    font-size: 1.8rem !important;
-    padding: 20px 30px !important;
-  }
-
-  .card {
-    padding: 4rem !important;
-    max-width: 95% !important;
-  }
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
 }
 
 
